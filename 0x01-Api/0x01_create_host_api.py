@@ -6,6 +6,7 @@ import pytz
 
 app = Flask(__name__)
 
+
 @app.route('/endpoint', methods=['GET'])
 def endpoint():
     slack_name = request.args.get('slack_name')
@@ -22,8 +23,8 @@ def endpoint():
         return jsonify({"error": "Invalid UTC offset"}), 400
 
     # Get GitHub URLs
-    file_url = 'https://github.com/Yusuf-R/IGNIX/'
-    source_code_url = 'https://github.com/your_username/your_repository'
+    file_url = "https://github.com/Yusuf-R/IGNIX/blob/main/0x01-Api/0x01_create_host_api.py"
+    source_code_url = 'https://github.com/Yusuf-R/IGNIX'
 
     response = {
         "slack_name": slack_name,
@@ -36,6 +37,6 @@ def endpoint():
 
     return jsonify(response), 200
 
-if __name__ == '__main__':
-    app.run(debug=True)
 
+if __name__ == '__main__':
+    app.run(port=5500, debug=True)
