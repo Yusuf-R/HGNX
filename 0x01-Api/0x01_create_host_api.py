@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-"""Create host api."""
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import datetime
 
 app = Flask(__name__)
@@ -8,6 +6,10 @@ app = Flask(__name__)
 
 @app.route("/api", methods=["GET"])
 def endpoint():
+    # Get query parameters from the URL
+    slack_name = request.args.get('slack_name')
+    track = request.args.get('track')
+
     # Get current day of the week
     day_of_week = datetime.datetime.now().strftime("%A")
 
@@ -19,19 +21,16 @@ def endpoint():
     source_code_url = "https://github.com/Yusuf-R/IGNIX"
 
     data = {
-        "slack_name": "Abdulwasiu Yusuf",
+        "slack_name": slack_name,
         "day_of_week": day_of_week,
         "utc_time": utc_now,
-        "track": "backend",
+        "track": track,
         "file_url": file_url,
         "source_code_url": source_code_url,
         "status_code": 200,
     }
 
-    response = jsonify(data)
-    response.headers["Content-Type"] = "application/json"
-
-    return response
+    return jsonify(data), 200
 
 
 if __name__ == "__main__":
