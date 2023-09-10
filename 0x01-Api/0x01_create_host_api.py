@@ -9,12 +9,13 @@ app = Flask(__name__)
 
 @app.route("/api", methods=["GET"])
 def endpoint():
+    """API endpoint"""
     slack_name = request.args.get("slack_name")
     current_day = datetime.datetime.now().strftime("%A")
     utc_time = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
     track = request.args.get("track")
-    github_file_url = "https://github.com/Yusuf-R/IGNIX/blob/main/0x01-Api/0x01_create_host_api.py"
-    github_repo_url = "https://github.com/Yusuf-R/IGNIX"
+    github_file_url = "https://github.com/Yusuf-R/HGNX/blob/main/0x01-Api/0x01_create_host_api.py"
+    github_repo_url = "https://github.com/Yusuf-R/HGNX"
     status_code = 200
 
     data = {
