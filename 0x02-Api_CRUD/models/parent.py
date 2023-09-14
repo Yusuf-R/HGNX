@@ -38,7 +38,7 @@ class Parent:
     def to_dict(self):
         """Dictionary representation of the class"""
         obj_dict = self.__dict__.copy()
-        obj_dict["__class__"] = self.__class__.__name__
+        # obj_dict["__class__"] = self.__class__.__name__
         if "_sa_instance_state" in obj_dict:
             del obj_dict["_sa_instance_state"]
         return obj_dict
@@ -53,3 +53,5 @@ class Parent:
     def delete(self):
         """delete the current instance from the storage"""
         from models import storage
+        storage.delete(self)
+        storage.save()
