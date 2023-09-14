@@ -97,7 +97,8 @@ API to a MySql-backed database.
 `PUT /api/:id/`
 
 ```
-    curl -X PUT http://0.0.0.0:5800/api -H "Content-Type: application/json" -d '{"name": "Sir General MacTavish"}'
+    curl -X PUT http://0.0.0.0:5800/api -H "Content-Type: application/json" -d {"name": "Sir General MacTavish"}
+    
 ```
 
 ### Response
