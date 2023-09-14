@@ -55,7 +55,7 @@ API to a MySql-backed database.
 
 ## Create a new Thing
 
-### POST Request
+## POST Request
 
 `POST /api/`
 ```
@@ -89,15 +89,15 @@ API to a MySql-backed database.
     "id": "8728905d-3500-42c0-adaf-75895babe8a5",
     "name": "General MacTavish"
 }
-
+```
 ## Update a user property
 
-### PUT Request
+## PUT Request
 
 `PUT /api/:id/`
 
 ```
-    curl -X PUT http://0.0.0.0:5800/api -H "Content-Type: application/json" -d {"name": "Sir General MacTavish"}
+    curl -X PUT http://0.0.0.0:5800/api -H "Content-Type: application/json" -d '{"name": "Sir General MacTavish"}'
     
 ```
 
