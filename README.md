@@ -1,2 +1,2 @@
-# HNGX
+# HNGx
 An internship-driven program
