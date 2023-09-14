@@ -8,4 +8,4 @@ from sqlalchemy import Column, String
 class User(Parent, Base):
     """User class"""
     __tablename__ = "users"
-    user_name = Column(String(32), unique=True, nullable=False)
+    name = Column(String(32), unique=True, nullable=False)
