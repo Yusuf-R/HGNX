@@ -1,2 +1,2 @@
-# IGNIX
-An internship driven program
+# IGNX
+An internship-driven program
