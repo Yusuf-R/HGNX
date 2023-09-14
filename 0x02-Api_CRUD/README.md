@@ -127,9 +127,9 @@ API to a MySql-backed database.
 
 ## Handling Unsupported Request
 
-### Attempting to create with unsupported data type
+#### Attempting to create with unsupported data type
 
-### Only supported data type is string
+#### Only supported data type is a string
 
 `POST /api/`
 
@@ -146,9 +146,9 @@ API to a MySql-backed database.
 <h1>Bad Request</h1>
 <p>Error: name must be a string</p>
 
-## Create a new object with a value already in the databse
+### Create a new object with a value already in the database
 
-### This ensures all objects are strictly unique
+This ensures all objects are strictly unique
 
 ### Request
 
@@ -168,8 +168,8 @@ API to a MySql-backed database.
 
 
 
-### Authors
+## Authors
 Abdulwasiu Tunde Yusuf
 
-### License
+## License
 This project is available for use under the MIT License.
