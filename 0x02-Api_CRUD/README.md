@@ -19,8 +19,8 @@ A simple REST API capable of CRUD operations on a "person" resource, interfacing
 | --- | --- | --- |
 | GET | /api/ | To get all the users in the databse |
 | POST | /api/ | To create a new user |
-| PUT | /api/<id> | To update valid user object |
-| DELETE | /api/<id> | To delete an instance of a user base on its id |
+| PUT | /api/id | To update valid user object |
+| DELETE | /api/id | To delete an instance of a user base on its id |
 
 ### Authors
 
