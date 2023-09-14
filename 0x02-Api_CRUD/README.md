@@ -4,16 +4,6 @@
 ### Introduction
 A simple REST API capable of CRUD operations on a "person" resource, interfacing with any database of your choice. The API dynamically handles parameters, such as adding or retrieving a person by name
 
-### Project Support Features
-* Users can signup and login to their accounts
-* Public (non-authenticated) users can access all causes on the platform
-* Authenticated users can access all causes as well as create a new cause, edit their created cause and also delete what they've created.
-### Installation Guide
-
-### Usage
-* Run npm start:dev to start the application.
-* Connect to the API using Postman on port 7066.
-
 ### API Endpoints
 | HTTP Verbs | Endpoints | Action |
 | --- | --- | --- |
@@ -157,13 +147,8 @@ This ensures all objects are strictly unique
 ```
     curl -X PUT http://0.0.0.0:5800/api -H "Content-Type: application/json" -d '{"name": "Sir General MacTavish"}'
 ```
-
-### Response
-
-<!doctype html>
-<html lang=en>
-<title>400 Bad Request</title>
-<h1>Bad Request</h1>
+## Response
+...
 <p>Error: name already exists</p>
 
 
