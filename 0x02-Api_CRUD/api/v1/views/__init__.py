@@ -28,6 +28,10 @@ def create_new(p_cls, kwargs):
     if p_cls:
         if not isinstance(kwargs["name"], str):
             abort(400, description="Error: name must be a string")
+        # validate if the current name exists
+        current_obj = storage.all(p_cls)
+        if kwargs["name"] in [obj.name for obj in current_obj.values()]:
+            abort(400, description="Error: name already exists")
         obj = p_cls(**kwargs)
         obj.save()
         return jsonify(obj.to_dict()), 201
@@ -37,11 +41,13 @@ def create_new(p_cls, kwargs):
 
 def update_match(obj, kwargs):
     """PUT: update the brand object"""
-    exempt = [
-            "id",
-            "user_id",
-            ]
+    exempt = ["id"]
+
     for key, value in kwargs.items():
+        # validate if the current name exist in db
+        current_obj = storage.all(obj.__class__)
+        if kwargs[key] in [obj.name for obj in current_obj.values()]:
+            abort(400, description="Update Error: name already exists")
         if key not in exempt and type(kwargs[key]) is str:
             setattr(obj, key, value)
         else:
