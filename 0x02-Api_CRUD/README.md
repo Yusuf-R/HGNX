@@ -56,6 +56,7 @@ API to a MySql-backed database.
 ## Create a new Thing
 
 ### POST Request
+
 `POST /api/`
 
     curl -X POST http://0.0.0.0:5800/api -H "Content-Type: application/json" -d '{name: General MacTavish}'
@@ -71,12 +72,14 @@ API to a MySql-backed database.
 ## GET a specific user
 
 ### Request
+
 `GET /api/id`
 
     curl -X GET http://0.0.0.0:5800/api/8728905d-3500-42c0-adaf-75895babe8a5
 
 
 ### Response
+
 ```
 {
     "id": "8728905d-3500-42c0-adaf-75895babe8a5",
@@ -86,11 +89,13 @@ API to a MySql-backed database.
 ## Update a user property
 
 ### PUT Request
+
 `PUT /api/:id/`
 
     curl -X PUT http://0.0.0.0:5800/api -H "Content-Type: application/json" -d '{"name": "Sir General MacTavish"}'
 
 ### Response
+
 ```
 {
     "id": "8728905d-3500-42c0-adaf-75895babe8a5",
@@ -101,6 +106,7 @@ API to a MySql-backed database.
 ## Delete a User
 
 ### DELETE Request
+
 `DELETE /api/id`
 
      curl -X DELETE http://0.0.0.0:5800/api/8728905d-3500-42c0-adaf-75895babe8a5
@@ -114,11 +120,15 @@ API to a MySql-backed database.
 ### Attempting to create with unsupported data type
 
 ### Only supported data type is string
+
 `POST /api/`
+
 
     curl -X POST http://0.0.0.0:5800/api -H "Content-Type: application/json" -d '{"name": 600 }'
 
+
 ### Response
+
 <!doctype html>
 <html lang=en>
 <title>400 Bad Request</title>
@@ -126,14 +136,17 @@ API to a MySql-backed database.
 <p>Error: name must be a string</p>
 
 ## Create a new object with a value already in the databse
+
 ### This ensures all objects are strictly unique
 
 ### Request
+
 `POST /api`
 
     curl -X PUT http://0.0.0.0:5800/api -H "Content-Type: application/json" -d '{"name": "Sir General MacTavish"}'
 
 ### Response
+
 <!doctype html>
 <html lang=en>
 <title>400 Bad Request</title>
