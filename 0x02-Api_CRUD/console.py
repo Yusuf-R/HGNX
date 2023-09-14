@@ -60,14 +60,15 @@ class HGNX(cmd.Cmd):
             return
         # check if class name is valid
         clx = argz.split(" ", 1)[0].strip("'\"")
-        data = argz.split(" ",1)[1].strip("'\"")
+        data = argz.split(" ", 1)[1].strip("'\"")
         if clx not in self.__clx:
             print("Error: Invalid class name\n{}".format(usage))
             return
         # create new instance
-        obj = storage.new(self.__clx[clx], data)
-        storage.save()
-        print(obj.to_dict())
+        obj = User()
+        obj.name = data
+        obj.save()
+        print("User: {} created sucessfully\n{}\n".format(obj.name, obj.id))
         return
 
     
@@ -199,9 +200,11 @@ class HGNX(cmd.Cmd):
         if storage.get(HGNX.__clx[clx], id) is None:
             print("Error: Invalid id")
             return
+        obj = storage.get(HGNX.__clx[clx], id)
         if clx == "User":
-            if attr == "user_name":
-                setattr(HGNX.__clx[clx], attr, val)
+            if attr == "name":
+                setattr(obj, attr, val)
+                obj.save()
                 storage.save()
                 print("{} Object updated successfully".format(clx))
                 return
