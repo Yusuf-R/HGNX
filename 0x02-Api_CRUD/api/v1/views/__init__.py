@@ -2,7 +2,7 @@
 from flask import Blueprint, make_response, jsonify, abort
 from models import storage
 
-app_views = Blueprint("app_views", __name__, url_prefix="/api/v1")
+app_views = Blueprint("app_views", __name__, url_prefix="/")
 
 
 def get_match(cls, id):
@@ -26,6 +26,8 @@ def delete_match(cls, id):
 def create_new(p_cls, kwargs):
     """POST: creating a new object for the class"""
     if p_cls:
+        if not isinstance(kwargs["name"], str):
+            abort(400, description="Error: name must be a string")
         obj = p_cls(**kwargs)
         obj.save()
         return jsonify(obj.to_dict()), 201
@@ -40,8 +42,10 @@ def update_match(obj, kwargs):
             "user_id",
             ]
     for key, value in kwargs.items():
-        if key not in exempt:
+        if key not in exempt and type(kwargs[key]) is str:
             setattr(obj, key, value)
+        else:
+            abort(400, description="Error: invalid key")
     obj.save()
     ret_data = jsonify(obj.to_dict())
     return make_response(ret_data, 200)

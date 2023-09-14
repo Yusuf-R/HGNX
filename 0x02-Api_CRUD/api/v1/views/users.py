@@ -10,12 +10,12 @@ parent_cls = User
 
 
 @app_views.route(
-    "/user",
+    "/api",
     methods=["GET"],
     strict_slashes=False,
-    defaults={"user_id": None},
+    defaults={"user_id": None}
 )
-@app_views.route("/user/<user_id>", methods=["GET"], strict_slashes=False)
+@app_views.route("/api/<user_id>", methods=["GET"], strict_slashes=False)
 def get_user(user_id):
     """Get all the user or get a specific user by user id."""
     if user_id:
@@ -25,7 +25,7 @@ def get_user(user_id):
 
 
 @app_views.route(
-    "/user/<user_id>",
+    "/api/<user_id>",
     methods=["DELETE"],
     strict_slashes=False
 )
@@ -35,7 +35,7 @@ def delete_user(user_id):
 
 
 @app_views.route(
-    "/users",
+    "/api",
     methods=["POST"],
     strict_slashes=False,
 )
@@ -43,14 +43,14 @@ def create_user():
     """Create a user via a POST request."""
     if not request.json:
         abort(400, description="Error: Not a valid JSON")
-    if "user_name" not in request.json:
+    if "name" not in request.json:
         abort(400, description="Error: Missing name")
     kwargs = request.get_json()
-    return create_new(parent_cls, None, None, kwargs)
+    return create_new(parent_cls, kwargs)
 
 
 @app_views.route(
-    "/users/<user_id>",
+    "/api/<user_id>",
     methods=["PUT"],
     strict_slashes=False
 )
