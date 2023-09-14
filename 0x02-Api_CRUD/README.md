@@ -58,8 +58,10 @@ API to a MySql-backed database.
 ### POST Request
 
 `POST /api/`
+```
 
     curl -X POST http://0.0.0.0:5800/api -H "Content-Type: application/json" -d '{name: General MacTavish}'
+```
 
 ### Response
 ```
@@ -75,7 +77,9 @@ API to a MySql-backed database.
 
 `GET /api/id`
 
+```
     curl -X GET http://0.0.0.0:5800/api/8728905d-3500-42c0-adaf-75895babe8a5
+```
 
 
 ### Response
@@ -92,7 +96,9 @@ API to a MySql-backed database.
 
 `PUT /api/:id/`
 
+```
     curl -X PUT http://0.0.0.0:5800/api -H "Content-Type: application/json" -d '{"name": "Sir General MacTavish"}'
+```
 
 ### Response
 
@@ -109,7 +115,10 @@ API to a MySql-backed database.
 
 `DELETE /api/id`
 
+```
      curl -X DELETE http://0.0.0.0:5800/api/8728905d-3500-42c0-adaf-75895babe8a5
+```
+### Response
 
 ```
 {}
@@ -123,8 +132,9 @@ API to a MySql-backed database.
 
 `POST /api/`
 
-
+```
     curl -X POST http://0.0.0.0:5800/api -H "Content-Type: application/json" -d '{"name": 600 }'
+```
 
 
 ### Response
@@ -143,7 +153,9 @@ API to a MySql-backed database.
 
 `POST /api`
 
+```
     curl -X PUT http://0.0.0.0:5800/api -H "Content-Type: application/json" -d '{"name": "Sir General MacTavish"}'
+```
 
 ### Response
 
