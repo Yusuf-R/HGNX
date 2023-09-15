@@ -4,6 +4,28 @@
 ### Introduction
 A simple REST API capable of CRUD operations on a "person" resource, interfacing with any database of your choice. The API dynamically handles parameters, such as adding or retrieving a person by name
 
+## Installation
+* Clone this repository: `git clone "https://github.com/Yusuf-R/HGNX/tree/main/0x02-Api_CRUD"`
+* Access 0x02-API_CRUD directory: `cd  0x02-API_CRUD`
+### Important Requirements
+* Install MySql 
+* Run the hgnx.sql
+```
+sudo mysql -p < hgnx.sql
+```
+This will help set up the environment and create the database
+Launch the app using flask or Gunicorn depending on the environment of choice
+```
+Using Flask
+ubuntu@12xxx:~/HGNX/0x02-Api_CRUD$ python3 -m api.app
+```
+```
+Using Gunicorn
+ubuntu@12xxx:~/HGNX/0x02-Api_CRUD$ gunicorn --bind 0.0.0.0:5900 api.app:app
+```
+
+Test your CRUD via the appropriate command using your desired manager, eg. POSTMAN or WebBrowser
+
 ### API Endpoints
 | HTTP Verbs | Endpoints | Action |
 | --- | --- | --- |
