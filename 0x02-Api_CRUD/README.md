@@ -50,7 +50,7 @@ API to a MySql-backed database.
 `POST /api/`
 ```
 
-    curl -X POST http://0.0.0.0:5800/api -H "Content-Type: application/json" -d '{name: General MacTavish}'
+    curl -X POST http://0.0.0.0:5800/api -H "Content-Type: application/json" -d '{"name": "General MacTavish"}'
 ```
 
 ### Response
