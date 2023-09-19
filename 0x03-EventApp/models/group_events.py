@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-"""This the base template for all model object instances."""
+"""This the base template for all GroupEvents object instances."""
 
-from sqlalchemy.orm import events
 from models.parent import Parent, Base
 from sqlalchemy import Column, ForeignKey, String
 

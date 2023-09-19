@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""This the base template for all model object instances."""
+"""This the base template for all IntresedeEvents object instances."""
 
 from models.parent import Parent, Base
 from sqlalchemy import Column, String, ForeignKey
