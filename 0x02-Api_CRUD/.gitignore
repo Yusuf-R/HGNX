@@ -31,3 +31,9 @@ MANIFEST
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
 __pypackages__/
 
+
+
+# sqlite
+*.db
+instance/
+

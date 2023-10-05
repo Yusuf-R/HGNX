@@ -11,7 +11,7 @@ class Parent:
     """Base class for all child class."""
 
     id = Column(
-        String(60), nullable=False, primary_key=True, default=uuid.uuid4
+        String(60), nullable=False, primary_key=True, default=uuid.uuid4()
     )
 
     def __init__(self, *args, **kwargs):
@@ -26,6 +26,8 @@ class Parent:
                 if k == "__class__":
                     continue
                 setattr(self, k, v)
+                if kwargs.get("id", None) is None:
+                    self.id = str(uuid.uuid4())
         else:
             self.id = str(uuid.uuid4())
 

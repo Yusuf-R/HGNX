@@ -15,14 +15,17 @@ class DBStorage:
 
     __engine = None
     __session = None
+    """
     __usr = "hgnx_dev"
     __pswd = "hgnx_dev_pwd"
     __db = "hgnx_db"
     __host = "localhost"
+    """
 
     def __init__(self):
         """Instantiate a DBStorage object"""
-        self.__engine = create_engine(
+        self.__engine = create_engine("sqlite:///hgnx.db")
+        """
             "mysql+mysqldb://{}:{}@{}/{}".format(
                 DBStorage.__usr,
                 DBStorage.__pswd,
@@ -32,6 +35,7 @@ class DBStorage:
             pool_pre_ping=False,
             echo=False,
         )
+        """
 
     def all(self, cls=None):
         """query on the current database session"""
